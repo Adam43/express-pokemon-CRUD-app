@@ -1,7 +1,6 @@
 import express from "express"; //Import Express
 import { Low } from "lowdb"; //Import the LowDB module. Uses a JSON file to create our "database"
 import { JSONFile } from "lowdb/node";
-import createPokemon from "./createPokemon.js"
 import setUpPokemonRoutes from "./routes/routes.js";
 
 //line 27 await db.write()

@@ -13,9 +13,9 @@ export default function setUpPokemonRoutes(db){
         })
     });
 //Get | One specific item
-    router.get("/", (request, response) => {
-        const pokemon = request.params.id
-        const currentPokemon = db.data.pokemon.find((element) => element.id === pokemon);
+    router.get("/:id", (request, response) => {
+        const pokemonId = request.params.id
+        const currentPokemon = db.data.pokemon.find((element) => element.id === pokemonId);
 
         response.status(200).json({
             success: true,
@@ -24,28 +24,49 @@ export default function setUpPokemonRoutes(db){
     });
 //Create
     router.post("/", (request, response) => {
-       
-
         db.data.pokemons.push({
             id: nanoid(4),
             name: request.body.todo,
         })
+
+        db.write();
 
         response.status(201).json({
             success: true,
         })
     });
 
-//Update    
+//Put | Update pokemon    
     router.put("/:id", (request, response) => {
-        console.log("success");
+        const pokemon = request.params.id;
+
+        const pokemonIndex = db.data.pokemons.findIndex(
+            (element) => element.id === pokemon
+        );
+
+        db.data.pokemons(pokemonIndex).name = request.body.name;
+
+        db.write();
+
+        response.status(200).json({
+            success: true,
+        });
     });
 //Delete
     router.get("/:id", (request, response) => {
-        console.log("success");
+        const pokemon = req.params.id;
+        const pokemonIndex = db.data.pokemons.findIndex(
+            (element) => element.id === pokemon
+        );
 
-        db.data.pokemon.splice(pokemon)
+        db.data.pokemon.splice(pokemonIndex, 1);
+
+        db.write()
+        response.status(200).json({
+            success: true,
+            name: db.data.pokemon,
+        });
     });
 
-    return router 
+    return router; 
 }       
