@@ -1,0 +1,26 @@
+{
+  "name": "express-pokemon-crud-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adam43/express-pokemon-CRUD-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adam43/express-pokemon-CRUD-app/issues"
+  },
+  "homepage": "https://github.com/Adam43/express-pokemon-CRUD-app#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lowdb": "^5.1.0",
+    "nanoid": "^4.0.1"
+  }
+}
