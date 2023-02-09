@@ -1,4 +1,5 @@
 import express from "express";
+import { nanoid } from "nanoid";
 
 export default function setUpPokemonRoutes(db){
     const router = express.Router();
@@ -8,7 +9,7 @@ export default function setUpPokemonRoutes(db){
         
         response.status(200).json({
             success: true,
-            pokemons:db.data.pokemons
+            pokemons: db.data.pokemons
         })
     });
 //Get | One specific item
