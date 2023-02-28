@@ -23,7 +23,7 @@ export default function setUpPokemonRoutes(db) {
 
     response.status(200).json({
       success: true,
-      id: currentPokemon,
+      pokemons: currentPokemon,
     });
   });
 
